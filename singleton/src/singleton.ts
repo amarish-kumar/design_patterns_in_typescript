@@ -1,8 +1,8 @@
 namespace SingletonPattern {
-    export class Singleton {
+    export  class Singleton {
         private static instance: Singleton;
 
-        constructor() {}
+        private constructor() {}
 
         static get Instance() {
             if (this.instance === null || this.instance === undefined) {
@@ -12,3 +12,4 @@ namespace SingletonPattern {
         }
     }
 }
+
