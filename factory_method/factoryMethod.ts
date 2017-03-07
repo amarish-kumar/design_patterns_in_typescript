@@ -1,28 +1,35 @@
 namespace FactoryMethodPattern {
 
-    export interface AbstractProduct {
-        method(param?: any) : void;
+    export interface IPerson {
+        getName() : String;
     }
 
-    export class ConcreteProductA implements AbstractProduct {
-        method = (param?: any) => {
-            return "Method of ConcreteProductA";
+    export class Villager implements IPerson {
+        getName(): String {
+            return "Village Person";
         }
     }
 
-    export class ConcreteProductB implements AbstractProduct {
-        method = (param?: any) => {
-            return "Method of ConcreteProductB";
+    export class CityPerson implements IPerson {
+        getName(): String {
+            return "City Person";
         }
     }
 
+    export enum PersonType
+    {
+        Rural,
+        Urban
+    }
 
-    export class ProductFactory {
-        public static createProduct(type: string) : AbstractProduct {
-            if (type === "A") {
-                return new ConcreteProductA();
-            } else if (type === "B") {
-                return new ConcreteProductB();
+
+    export class PersonFactory {
+
+        public static createProduct(type: PersonType) : IPerson {
+            if (type === PersonType.Rural) {
+                return new Villager();
+            } else if (type === PersonType.Urban) {
+                return new CityPerson();
             }
 
             return null;

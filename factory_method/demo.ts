@@ -3,11 +3,11 @@
 namespace FactoryMethodPattern {
 	export namespace Demo {
 		export function show() : void {
-		    var a: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("A");
-		    var b: FactoryMethodPattern.AbstractProduct = FactoryMethodPattern.ProductFactory.createProduct("B");
+		    var villager: IPerson = PersonFactory.createProduct(PersonType.Rural);
+		    var cityPerson: IPerson = FactoryMethodPattern.PersonFactory.createProduct(PersonType.Urban);
 
-		    console.log(a.method());
-		    console.log(b.method());
+		    console.log(villager.getName());
+		    console.log(cityPerson.getName());
 		};
 	}
 }
